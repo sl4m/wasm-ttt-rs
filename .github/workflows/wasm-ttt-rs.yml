@@ -72,8 +72,8 @@ jobs:
 
   deploy:
     name: Deploy
-    #needs: build
-    #if: github.ref == 'master'
+    if: github.ref == 'refs/heads/dev'
+    needs: build
 
     runs-on: ubuntu-latest
 
