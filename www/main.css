@@ -16,12 +16,6 @@ body {
   padding-top: 1em;
 }
 
-#message {
-  font-family: monospace;
-  font-size: 2em;
-  padding-bottom: 1em;
-}
-
 #board {
   border-collapse: collapse;
   height: 75%;
@@ -63,4 +57,11 @@ body {
 
 .disable-click {
   pointer-events: none;
+}
+
+#end-game {
+  font-family: monospace;
+  font-size: 2em;
+  padding-bottom: 1em;
+  visibility: hidden;
 }
