@@ -1,0 +1,35 @@
+{
+  "name": "wasm-ttt-rs",
+  "version": "0.1.0",
+  "author": "skim <skim@swainslane.co>",
+  "description": "Tic-tac-toe in Rust + WASM",
+  "license": "(MIT OR Apache-2.0)",
+  "homepage": "https://github.com/sl4m/wasm-ttt-rs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sl4m/wasm-ttt-rs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sl4m/wasm-ttt-rs/issues"
+  },
+  "keywords": [
+    "rust",
+    "wasm",
+    "webassembly"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack-dev-server"
+  },
+  "dependencies": {
+    "wasm-ttt-rs": "file:../pkg"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "6.0.2",
+    "debug": "^4.1.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
