@@ -6,6 +6,7 @@ const HUMAN_MARK = "X";
 const CPU_MARK = "O";
 const DISABLE_CLICK = " disable-click";
 const game = Game.with_defaults();
+const board = document.getElementById("board");
 const cells = document.getElementsByClassName("cell");
 
 Array.from(cells).forEach(cell => {
@@ -15,13 +16,14 @@ Array.from(cells).forEach(cell => {
     el.innerText = HUMAN_MARK;
     const cpuMove = game.play_round(+el.dataset.pos);
 
-    if (cpuMove) {
+    if (cpuMove != undefined) {
       const cpuEl = document.querySelector('[data-pos="' + cpuMove + '"]');
-      cpuEl.className += DISABLE_CLICK;
+      disableEl(cpuEl);
       cpuEl.innerText = CPU_MARK;
     }
 
     if (game.is_over()) {
+      disableEl(board);
       const winner = game.winner();
       const msgEl = document.getElementById("message");
 
@@ -33,3 +35,7 @@ Array.from(cells).forEach(cell => {
     }
   });
 });
+
+function disableEl(el) {
+  el.className += DISABLE_CLICK;
+}

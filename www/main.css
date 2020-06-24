@@ -10,10 +10,10 @@ body {
   width: 100%;
 }
 
-#title {
+#blurb {
   font-family: monospace;
-  font-size: 3em;
-  padding-bottom: 0.5em;
+  font-size: 1em;
+  padding-top: 1em;
 }
 
 #message {
