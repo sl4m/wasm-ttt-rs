@@ -15,7 +15,7 @@ Array.from(cells).forEach(cell => {
     el.innerText = HUMAN_MARK;
     const cpuMove = game.play_round(+el.dataset.pos);
 
-    if (cpuMove && !game.is_over()) {
+    if (cpuMove) {
       const cpuEl = document.querySelector('[data-pos="' + cpuMove + '"]');
       cpuEl.className += DISABLE_CLICK;
       cpuEl.innerText = CPU_MARK;

@@ -24,7 +24,7 @@ impl Game {
         let human: Box<dyn Player> = Box::new(Human::with_move(Self::HUMAN_MARK, position));
         let players: Vec<&Box<dyn Player>> = vec![&human, &self.cpu];
 
-        let mut last_move: Option<usize> = None;
+        let mut last_cpu_move: Option<usize> = None;
         for player in players {
             if self.board.is_game_over() {
                 break;
@@ -32,9 +32,11 @@ impl Game {
 
             let pos = player.get_move(&self.board);
             self.board.set_mark(pos, player.mark());
-            last_move = Some(pos);
+            if pos != position {
+                last_cpu_move = Some(pos);
+            }
         }
-        last_move
+        last_cpu_move
     }
 
     pub fn is_over(&self) -> bool {
