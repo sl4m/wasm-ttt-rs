@@ -17,8 +17,8 @@ env:
   RUST_BACKTRACE: 1
 
 jobs:
-  all:
-    name: All
+  build:
+    name: Build
 
     strategy:
       matrix:
@@ -48,11 +48,15 @@ jobs:
         components: clippy
         override: true
 
+    - name: Install wasm-pack
+      run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
     - name: Versions
       run: |
         rustup --version
         cargo --version
         cargo clippy --version
+        wasm-pack --version
 
     - name: Build
       run: cargo build --verbose
@@ -63,8 +67,51 @@ jobs:
     - name: Clippy
       run: cargo clippy
 
+    - name: Test WASM
+      run: wasm-pack test --headless --${{ matrix.browser }}
+
+  deploy:
+    name: Deploy
+    #needs: build
+    #if: github.ref == 'master'
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Install node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+
     - name: Install wasm-pack
       run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
-    - name: Test WASM
-      run: wasm-pack test --headless --${{ matrix.browser }}
+    - name: Versions
+      run: |
+        node -v
+        npm -v
+
+    - name: Build WASM
+      run: wasm-pack build --release
+
+    - name: WASM size
+      run: wc -c wasm_ttt_rs_bg.wasm
+      working-directory: ./pkg
+
+    - name: Build www
+      run: |
+        npm ci
+        npm run build
+      working-directory: ./www
+
+    - name: Deploy to GH Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./www/dist
+        user_name: 'sl4m'
+        user_email: 'skim@swainslane.co'
+        allow_empty_commit: true
