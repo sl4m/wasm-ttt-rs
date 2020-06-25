@@ -1,13 +1,10 @@
 body {
-  align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
   justify-content: center;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
+  height: 95vh;
+  width: 100vw;
 }
 
 #blurb {
@@ -17,41 +14,38 @@ body {
 }
 
 #board {
-  border-collapse: collapse;
-  height: 75%;
-  width: 50%;
-}
-
-#board tr:nth-of-type(3) td {
-  border-bottom-color: transparent;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
 }
 
 .cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25vh;
+  width: 20vw;
   border: 5px solid #4D4B4B;
   color: #4D4B4B;
   cursor: pointer;
   font-family: monospace;
   font-size: 5em;
   text-align: center;
-  vertical-align: middle;
 }
 
-.cell::after {
-  content: "";
-  margin-top: 100%;
+.cell:nth-child(n+7) {
+  border-bottom-color: transparent;
 }
 
-.cell:first-of-type {
+.cell:nth-child(3n+1) {
   border-left-color: transparent;
-  border-top-color: transparent;
 }
 
-.cell:nth-of-type(2) {
-  border-top-color: transparent;
-}
-
-.cell:nth-of-type(3) {
+.cell:nth-child(3n+3) {
   border-right-color: transparent;
+}
+
+.cell:nth-child(-n+3) {
   border-top-color: transparent;
 }
 
