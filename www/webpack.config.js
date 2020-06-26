@@ -9,6 +9,6 @@ module.exports = {
   },
   mode: "production",
   plugins: [
-    new CopyWebpackPlugin({patterns: ["index.html", "main.css", "favicon.ico"]})
+    new CopyWebpackPlugin({patterns: ["index.html", "main.css"]})
   ]
 };
