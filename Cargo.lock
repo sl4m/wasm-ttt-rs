@@ -84,7 +84,7 @@ dependencies = [
 [[package]]
 name = "ttt-rs"
 version = "0.1.0"
-source = "git+https://github.com/sl4m/ttt-rs?rev=ba0488fc8acd85f107db5b21bffadea7fa112e3a#ba0488fc8acd85f107db5b21bffadea7fa112e3a"
+source = "git+https://github.com/sl4m/ttt-rs?rev=78b9ef00255a84c98f3f8d65805a025431b90b86#78b9ef00255a84c98f3f8d65805a025431b90b86"
 
 [[package]]
 name = "unicode-xid"

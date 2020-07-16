@@ -1,6 +1,4 @@
-use ttt_rs::board::Board;
-use ttt_rs::mark::Mark;
-use ttt_rs::player::Player;
+use ttt_rs::{Board, Mark, Player};
 
 #[derive(Debug)]
 pub(crate) struct Human {

@@ -9,7 +9,7 @@ edition = "2018"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-ttt-rs = { git = "https://github.com/sl4m/ttt-rs", rev = "ba0488fc8acd85f107db5b21bffadea7fa112e3a" }
+ttt-rs = { git = "https://github.com/sl4m/ttt-rs", rev = "78b9ef00255a84c98f3f8d65805a025431b90b86" }
 wasm-bindgen = "0.2.63"
 
 [dev-dependencies]
