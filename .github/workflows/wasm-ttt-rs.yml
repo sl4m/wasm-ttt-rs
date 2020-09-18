@@ -24,16 +24,10 @@ jobs:
       matrix:
         browser:
         - chrome
-        - firefox
         os:
         - macos-latest
         - ubuntu-latest
         - windows-latest
-        exclude:
-        - os: ubuntu-latest
-          browser: firefox
-        - os: windows-latest
-          browser: firefox
 
     runs-on: ${{matrix.os}}
 
