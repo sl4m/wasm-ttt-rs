@@ -30,6 +30,8 @@ jobs:
         - ubuntu-latest
         - windows-latest
         exclude:
+        - os: ubuntu-latest
+          browser: firefox
         - os: windows-latest
           browser: firefox
 
