@@ -1,5 +1,6 @@
 use crate::human::Human;
 use core::fmt::Debug;
+use std::string::ToString;
 use ttt_rs::{Board, Computer, Mark, Player};
 use wasm_bindgen::prelude::*;
 
@@ -42,10 +43,7 @@ impl Game {
     }
 
     pub fn winner(&self) -> Option<String> {
-        match self.board.winner() {
-            Some(mark) => Some(mark.to_string()),
-            None => None,
-        }
+        self.board.winner().map(ToString::to_string)
     }
 }
 

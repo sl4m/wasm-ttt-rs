@@ -1,6 +1,6 @@
 #![forbid(unsafe_code)]
 #![warn(missing_debug_implementations, rust_2018_idioms)]
-#![deny(clippy::all, clippy::pedantic, clippy::restriction)]
+#![deny(clippy::all, clippy::pedantic)]
 #![allow(
     clippy::implicit_return,
     clippy::missing_docs_in_private_items,
