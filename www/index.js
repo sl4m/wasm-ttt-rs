@@ -12,7 +12,7 @@ const endGame = document.getElementById("end-game");
 
 Array.from(cells).forEach(cell => {
   cell.addEventListener("click", e => {
-    const el = e.toElement;
+    const el = e.currentTarget;
     el.className += DISABLE_CLICK;
     el.innerText = HUMAN_MARK;
     const cpuMove = game.play_round(+el.dataset.pos);
